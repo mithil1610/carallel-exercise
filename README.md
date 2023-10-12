@@ -47,6 +47,8 @@ Step 3:
 cd carallel-backend
 ```
 
+* So, now update the .env.sample file in the 'carallel-backend' directory and then rename it to .env. Here, you will provide MySQL database credentials, and create an empty database with the name 'carallel.' Our backend application will take care of creating all other entities and tables.
+
 Step 4:
 * To Start backend server install dependency
 ```
