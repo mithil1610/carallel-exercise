@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from "react";
-import Article from "./cmponents/Article";
+import Article from './components/Header';
 import { API } from "./constant";
 
 interface IArticleState {
