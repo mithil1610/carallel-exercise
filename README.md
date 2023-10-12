@@ -10,7 +10,7 @@ The following technology stack was used in developing this project:
 
 * Backend: Nest.js, MySQL
 * Frontent: Next.js
-* API Interceptor : Postman
+* API Interceptor : Swagger and Postman
 
 ## Requirements
 
