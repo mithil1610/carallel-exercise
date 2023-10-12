@@ -31,14 +31,14 @@ Step 1:
 * clone the repository
 
 ```
-git clone git@github.com:mithil1610/carallel.git
+git clone https://github.com/mithil1610/carallel-exercise.git
 ```
 
 Step 2:
 
 * Navigate to the main directory:
 ```
-cd /carallel
+cd /carallel-exercise
 ```
 
 Step 3:
