@@ -31,7 +31,11 @@ async function bootstrap() {
   });
 
   // Enable CORS
-  app.enableCors();
+  app.enableCors({
+    origin: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true,
+  });
 
   // Mount Swagger Documents TODO Enable only in non-prod env
   const document = SwaggerModule.createDocument(app, options);
