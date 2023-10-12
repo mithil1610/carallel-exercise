@@ -78,3 +78,4 @@ npm run dev
 ```
 
 * You can see frontend running here: http://localhost:8080/
+* Loom Video Demo Link: https://www.loom.com/share/8753d093e3be4653b787afa807643c3c?sid=6ec7d7eb-86a0-4797-9521-b4f7bf1996c9
