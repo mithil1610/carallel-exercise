@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from "react";
-import Article from './components/Header';
+import Article from "./components/Article";
 import { API } from "./constant";
 
 interface IArticleState {
@@ -14,7 +14,9 @@ interface IArticleState {
 export default function Home() {
   const [articles, setArticles] = useState<IArticleState[]>([]);
   const [userArticles, setUserArticles] = useState<IArticleState[]>([]);
-  const token = () => localStorage.getItem("token");
+  const [isLogin, setIsLogin] = useState<boolean>(false);
+
+  const token = () =>  typeof window !== "undefined" && localStorage.getItem("token");
 
   const fetchArticles = async() => {
     const response = await fetch(API + "/api/v1/resources/articles", {
@@ -64,6 +66,7 @@ export default function Home() {
   useEffect(() => {
     fetchArticles();
     if (token()) {
+      setIsLogin(true);
       fetchUserArticles();
     }
   }, []);
@@ -81,9 +84,9 @@ export default function Home() {
         </div>
       }
       <div>
-        { token() && <>
+        { isLogin && <div>
           <h1>What's New</h1><br></br>
-        </>}
+        </div>}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {
             articles.length > 0 && getArticles().map(article => <Article key={article.id} article={article}/>)

@@ -19,7 +19,7 @@ export default function Article({
     const router = useRouter();
 
     const onArticle = async () => {
-        const token = localStorage.getItem("token");
+        const token = typeof window !== "undefined" && localStorage.getItem("token");
         if (token) {
             try {
                 const response = await fetch(API + "/api/v1/resources/add-read-user-article?articleId=" + article.id, {

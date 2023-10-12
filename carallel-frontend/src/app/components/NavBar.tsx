@@ -1,16 +1,22 @@
 'use client';
 import Link from "next/link";
 import { useRouter } from 'next/navigation'
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const router = useRouter();
-  const isLogin = () => {
-    return localStorage.getItem('token');
-  }
+  const [isLogin, setIsLogin] = useState<string | null>("");
+
+  useEffect(() => {
+    if (window !== undefined) {
+      if (localStorage.getItem('token')) {
+        setIsLogin(localStorage.getItem('token'));
+      }
+    }
+  }, []);
 
   const logout = () => {
     localStorage.clear();
-    console.log(localStorage.getItem("token"));
     router.push("/");
     window.location.reload();
   }
@@ -31,13 +37,13 @@ const Navbar = () => {
         </div>
         <div>
           <div className="flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 block">
-            <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+            <ul suppressHydrationWarning={false} className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                 <li className="text-white">
                     <Link href={"/"}>Home</Link>
                 </li>
-                { isLogin() ? <li className="text-white">
-                    <button onClick={logout}>Logout</button>
-                  </li> :
+                { isLogin ? 
+                    <li className="text-white cursor-pointer" onClick={logout}>Logout</li>
+                   :
                   <li className="text-white">
                       <Link href={"/login"}>Login</Link>
                   </li>
